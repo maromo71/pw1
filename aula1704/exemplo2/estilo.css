@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(244, 240, 240);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    background-color: rgb(16, 106, 64);
+    text-align: center;
+    color: white;
+    padding: 6px;
+    border: 2px solid #2f3331;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
