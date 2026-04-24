@@ -1,0 +1,40 @@
+/* Configuração geral do fundo da página */
+body {
+    margin: 0;
+    padding: 0;
+    /* Fundo da cidade escuro */
+    background-color: rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f1f1f1;
+}
+
+/* Segredo da imagem FIXA */
+.spider-man {
+    position: fixed; /* Trava a imagem na tela */
+    top: -20px; /* Puxa um pouco para cima para parecer que o fio vem do top */
+    right: 0px; /* Trava o canto direito */
+    width: 100%; /* ajusta o tamanho da imagem */
+    z-index: 1; /* Mantem a imagem em uma camada inferior */
+}
+
+.conteudo {
+    position: relative;
+    z-index: 2; /* Garante que o texto passe por cima da imagem */
+    max-width: 700px;
+    margin: 100px auto 200px 50px;
+    padding: 40px;
+    /* Fundo escuro semi-transparene (70% de opacidade) para o texto */
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 12px; /* Arredondar o box */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+.conteudo h1 {
+    font-size: 3rem;
+    color: #ff3333; /* Vermelho do Clarin Diario */
+    text-transform: uppercase; /* Coloca as letras em maiusculos */
+    margin-top: 0;
+}
