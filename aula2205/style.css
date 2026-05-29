@@ -1,0 +1,461 @@
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES GERAIS (Boas Práticas de Design)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta Dark Mode - Azul Moderno & Profundo */
+    --bg-dark-absolute: #050811;
+    /* Preto azulado profundo para o fundo principal */
+    --bg-dark-surface: #0b132b;
+    /* Azul escuro fechado para blocos e cards */
+    --brand-electric: #48cae4;
+    /* Azul neon/elétrico para contrastes e realces */
+    --brand-deep-blue: #1c2541;
+    /* Azul intermediário estrutural */
+
+    /* Tipografia e Texto */
+    --text-primary: #f8f9fa;
+    /* Cinza claríssimo (quase branco) de alta legibilidade */
+    --text-muted: #94a3b8;
+    /* Cinza médio para textos secundários */
+
+    /* Efeitos */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-glow: 1px solid rgba(72, 202, 228, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-dark-absolute);
+    color: var(--text-primary);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Customização básica da barra de rolagem do navegador */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-absolute);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--brand-deep-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-electric);
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR
+   ========================================================================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(5, 8, 17, 0.85);
+    backdrop-filter: blur(12px);
+    /* Efeito de vidro fosco moderno */
+    border-bottom: var(--border-glow);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+}
+
+.brand-logo span {
+    color: var(--brand-electric);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+    color: var(--brand-electric);
+}
+
+/* ==========================================================================
+   ELEMENTOS DE INTERAÇÃO (BOTÕES)
+   ========================================================================== */
+.btn-primary-sm {
+    background-color: transparent;
+    color: var(--brand-electric);
+    border: 1px solid var(--brand-electric);
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary-sm:hover {
+    background-color: var(--brand-electric);
+    color: var(--bg-dark-absolute);
+    box-shadow: 0 0 15px rgba(72, 202, 228, 0.4);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--brand-electric);
+    color: var(--bg-dark-absolute);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(72, 202, 228, 0.5);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--brand-deep-blue);
+    color: var(--text-primary);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    border: var(--border-glow);
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(28, 37, 65, 0.6);
+    color: var(--brand-electric);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MAIN STRUCTURE & SECTIONS
+   ========================================================================== */
+.main-content {
+    margin-top: 80px;
+    /* Evita que o header fixed cubra o conteúdo */
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Linha estilizada abaixo do título da seção */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--brand-electric);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 80% 20%, rgba(28, 37, 65, 0.4) 0%, rgba(5, 8, 11, 0) 50%);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-tag {
+    color: var(--brand-electric);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Container de placeholder visual do lado direito da Hero */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-box-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: var(--bg-dark-surface);
+    border: var(--border-glow);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.visual-glitch-text {
+    font-size: 0.875rem;
+    font-family: monospace;
+    color: var(--brand-electric);
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   ABOUT SECTION
+   ========================================================================== */
+.about-section {
+    background-color: rgba(11, 19, 43, 0.3);
+    border-top: var(--border-glow);
+    border-bottom: var(--border-glow);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.about-highlights {
+    display: flex;
+    gap: 2rem;
+}
+
+.highlight-card {
+    background-color: var(--bg-dark-surface);
+    border: var(--border-glow);
+    padding: 2rem;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.card-number {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brand-electric);
+    margin-bottom: 0.5rem;
+}
+
+.card-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   STATS & CARDS (Uso de Grid Layout)
+   ========================================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stat-card {
+    background-color: var(--bg-dark-surface);
+    border: var(--border-glow);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-electric);
+    box-shadow: 0 10px 30px rgba(72, 202, 228, 0.1);
+}
+
+.stat-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-detail {
+    font-size: 0.85rem;
+    color: var(--brand-electric);
+    display: block;
+}
+
+/* ==========================================================================
+   SETUP SECTION
+   ========================================================================== */
+.setup-section {
+    background-color: var(--bg-dark-absolute);
+}
+
+.setup-list {
+    list-style: none;
+    max-width: 600px;
+}
+
+.setup-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.setup-item strong {
+    color: var(--text-primary);
+    display: inline-block;
+    width: 150px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: #03050a;
+    border-top: var(--border-glow);
+    padding: 3rem 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copy {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.social-link:hover {
+    color: var(--brand-electric);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE BÁSICA (Dica extra de aula)
+   ========================================================================== */
+@media (max-width: 968px) {
+
+    .hero-container,
+    .about-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
